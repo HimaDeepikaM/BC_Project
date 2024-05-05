@@ -1,11 +1,26 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ethers } from "ethers";
 import { contractABI, contractAddress } from "../../../utils/constants";
 import { useSearchParams } from "next/navigation";
 
+
+
+
+/*const ItemDetailsContent = () => {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <ItemDetailsContent />
+        </Suspense>
+    );
+};*/
+
+
+
+
 const ItemDetails = () => {
-    const searchParams = useSearchParams();
+    //const searchParams = useSearchParams();
+    const [searchParams, setSearchParams] = useState(new URLSearchParams());
     const [isBuying, setIsBuying] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [buttonText, setButtonText] = useState('Buy Item');
