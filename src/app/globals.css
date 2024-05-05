@@ -3,31 +3,37 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 255, 0, 0; /* RGB for purple */
+  --background-start-rgb: 0,0,0; /* RGB for white */
+  --background-end-rgb: 0, 0, 0; /* RGB for blue */
+  --background-image-url: url("./ic.png");
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: 255, 0, 0; /* RGB for red */
+    --background-start-rgb: 255, 0, 0; /* RGB for black */
+    --background-end-rgb: 0, 0, 0; /* RGB for black */
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  color: rgb(var(--foreground-rgb)); /* Dynamically sets text color */
+  background: 
+    linear-gradient(
       to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgba(255, 255, 255, 0), /* starting transparent */
+      rgb(var(--background-end-rgb)) /* transitioning to the color defined by the variable */
+    ),
+    url('./ic.png'); /* path to your background image */
+  background-size: cover; /* Ensures the background covers the entire area */
+  background-position: center; /* Centers the background image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  /* .text-balance {
+    text-wrap: balance; // This property is not supported in standard CSS.
+  } */
+  /* If you need a specific text styling feature, please let me know to include an alternative */
 }
